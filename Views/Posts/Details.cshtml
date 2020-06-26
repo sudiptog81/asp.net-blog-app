@@ -1,0 +1,44 @@
+﻿@model BlogMvc.Models.Post
+@{
+  ViewData["Title"] = "Details";
+}
+
+<div class="container row pt-3 m-0">
+  <div class="col-8">
+    <h2>Post Details</h2>
+  </div>
+  <div class="col-4">
+    <a class="btn btn-block btn-outline-dark" asp-action="Index">Back to List</a>
+  </div>
+  <div class="col-12 pt-3">
+    <dl class="row">
+      <dt class="col-sm-2">
+        @Html.DisplayNameFor(m => m.Id)
+      </dt>
+      <dd class="col-sm-10">
+        @Html.DisplayFor(m => m.Id)
+      </dd>
+      <dt class="col-sm-2">
+        @Html.DisplayNameFor(m => m.Title)
+      </dt>
+      <dd class="col-sm-10">
+        @Html.DisplayFor(m => m.Title)
+      </dd>
+      <dt class="col-sm-2">
+        @Html.DisplayNameFor(m => m.Content)
+      </dt>
+      <dd class="col-sm-10">
+        @Html.DisplayFor(m => m.Content)
+      </dd>
+      <dt class="col-sm-2">
+        @Html.DisplayNameFor(m => m.CreatedAt)
+      </dt>
+      <dd class="col-sm-10">
+        @Html.DisplayFor(m => m.CreatedAt)
+      </dd>
+    </dl>
+    <div>
+      <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+    </div>
+  </div>
+</div>

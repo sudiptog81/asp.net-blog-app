@@ -1,0 +1,55 @@
+﻿@model IEnumerable<BlogMvc.Models.Post>
+@{
+  ViewData["Title"] = "Blog Posts";
+}
+
+<div class="container row pt-3 m-0">
+  <div class="col-8">
+    <h2>Blog Posts</h2>
+  </div>
+  <div class="col-4">
+    <a class="btn btn-block btn-outline-dark" asp-action="Create">Create New Post</a>
+  </div>
+  <div class="col-12 pt-3">
+    @if (Model.Any())
+    {
+      <table class="table">
+        <thead>
+        <tr>
+          <th>
+            @Html.DisplayNameFor(m => m.Title)
+          </th>
+          <th>
+            @Html.DisplayNameFor(m => m.Content)
+          </th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+          <tr>
+            <td>
+              @Html.DisplayFor(m => item.Title)
+            </td>
+            <td>
+              @Html.DisplayFor(m => item.Content)
+            </td>
+            <td>
+              <a class="btn btn-sm btn-info" asp-action="Details" asp-route-id="@item.Id">View</a>
+              <a class="btn btn-sm btn-success mr-2 ml-2" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+              <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+          </tr>
+        }
+        </tbody>
+      </table>
+    }
+    else
+    {
+      <p class="text-center">No Posts Found</p>
+    }
+  </div>
+
+
+</div>
